@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Open CTI Softphone</title>
+</head>
+<body>
+  <h2>Welcome to My Softphone</h2>
+  <button onclick="screenPop()">Test Screen Pop</button>
+
+  <script src="/support/api/48.0/interaction.js"></script>
+  <script>
+    function screenPop() {
+      sforce.opencti.screenPop({
+        type: sforce.opencti.SCREENPOP_TYPE.SOBJECT,
+        params: { recordId: "0035g00000XXXXXX" }, // Replace with real Contact ID
+        callback: function(response) {
+          if (response.success) {
+            alert("Screen pop success!");
+          } else {
+            alert("Failed: " + response.errors);
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
